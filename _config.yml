@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Li_xiaoyu's personal blog
-subtitle:
-description: 来这里，查看更多技术的分享
-author: Li_xiaoyu
-language: zh
+title: Li_xiaodian's personal blog
+subtitle: Learn Change My Life
+description: 学习总结 思考感悟 知识管理
+author: Li_小点
+language: zh-Hans
 timezone:
 
 # URL
@@ -53,7 +53,7 @@ index_generator:
   order_by: -date
   
 # Category & Tag
-default_category: categorized
+default_category: uncategorized
 category_map:
 tag_map:
 
@@ -80,7 +80,7 @@ deploy:
   type: git
   repo: https://github.com/lixiaoyu2017/lixiaoyu2017.github.io.git
   branch: master
-  message: 我的博客
+  message: 
 
 
 # 头像
@@ -99,9 +99,23 @@ jsonContent:
     content: false
     slug: false
     updated: false
-    comments: false
+    comments: true
     link: false
     permalink: false
     excerpt: false
     categories: false
     tags: true
+
+# 菜单设置
+menu_icons:
+  enable: true
+  # Icon Mapping.
+  home: home
+  about: user
+  categories: th
+  tags: tags
+  archives: archive
+  commonweal: heartbeat
+
+# Put your favicon.ico into `hexo-site/source/` directory.
+favicon: https://minisite.daojia.com/fe/sy/temp/Portraits.jpg
