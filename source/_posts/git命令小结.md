@@ -1,7 +1,7 @@
 ---
 title: git命令总结
 date: 2017-11-09 10:58:12
-tags: [git,git多人合作,脚本命令]
+tags: [git脚本命令,git多人合作]
 categories: 前端知识
 ---
 

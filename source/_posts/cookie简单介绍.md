@@ -1,7 +1,7 @@
 ---
 title: cookie简单介绍
 date: 2017-11-16 17:53:21
-tags: [cookie介绍,cookie使用,session]
+tags: [cookie介绍,session]
 categories: 前端知识
 ---
 

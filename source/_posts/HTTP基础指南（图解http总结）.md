@@ -1,7 +1,7 @@
 ---
 title: HTTP基础指南（图解http总结）
 date: 2017-11-11 15:22:53
-tags: [图解http总结,http网络,http基础]
+tags: [图解http总结,http网络基础]
 categories: http基础
 ---
 (以下是http相关知识，在前端开发中知道这些基础的知识也是必要的，本文是根据图解http的小总结，希望可以帮助大家更好的理解http)
