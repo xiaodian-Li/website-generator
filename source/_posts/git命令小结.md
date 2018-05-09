@@ -1,17 +1,17 @@
 ---
 title: git命令总结
 date: 2017-11-09 10:58:12
-tags: [git脚本命令,git多人合作]
+tags: [git]
 categories: 前端知识
 ---
 
 (以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长)
 ##### 远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）
 这里以远程B仓库为例
+<!--more-->
 * git clone B test
 或者 git remote add origin B test  //把仓库克隆到本地并命名一个项目名称test
 * git init   //在本地初始化创建仓库<br>
-<!--more-->
 * git branch master    //创建主支
 * git branch dev //本地创建dev分支
 * git checkout dev  //切换到dev分支

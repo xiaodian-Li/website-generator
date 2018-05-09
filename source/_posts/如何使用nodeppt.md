@@ -7,6 +7,7 @@ categories: ppt
 (演讲和分享的时候，怎么能让自己从不敢讲话到侃侃而谈，自信不胆怯是一方面，ppt也很重要哦，下面是一位好朋友分享给我的制作ppt)
 ### 首先nodePPT是基于markdown语法写的
 * 几个常用的mark语法
+<!--more-->
 ```
 标题       h1到h6  
 无序列表    * / - 
@@ -20,7 +21,7 @@ categories: ppt
 引用代码     ``<html>```  
 
 ```
-<!--more-->
+
 ### 创建文件夹
 * 里面两个文件，通常是img和index
 * 其中img放所需图片，index为markdown语法

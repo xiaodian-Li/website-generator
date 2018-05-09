@@ -1,14 +1,14 @@
 ---
 title: HTTP基础指南（图解http总结）
 date: 2017-11-11 15:22:53
-tags: [图解http总结,http网络基础]
+tags: [http网络]
 categories: http基础
 ---
 (以下是http相关知识，在前端开发中知道这些基础的知识也是必要的，本文是根据图解http的小总结，希望可以帮助大家更好的理解http)
 ## 了解Web及网络基础
 1.相关概念：
-* DNS:位于应用层，提供域名到IP地址之间的解析服务。
-![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/11.png)<br><!--more-->
+* DNS:位于应用层，提供域名到IP地址之间的解析服务。<br><!--more-->
+![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/11.png)
 * TCP协议: 位于传输层，提供可靠的字节流服务。（就是将大块数据分割成以报文段为单位的数据包进行管理）
 * IP协议: 位于网络层，tcp/ip协议族中指网际协议，是一种协议名称，作用把各种数据包传递给对方。（确保成功发送，满足ip地址和mac地址）
 * IP地址:指明节点被分配到的地址；MAC地址：指网卡所属的固定地址
