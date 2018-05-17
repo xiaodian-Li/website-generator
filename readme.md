@@ -6,9 +6,10 @@
 5. 异步编程&事件循环event loops---总结  
 6. css面试题总结  
 7. 如何使用nodeppt  
-8. html面试总结  
-9. 常用数组操作方法  
-10. commit message 规范
-11. echarts快速上手  
-12. 开发之余的心灵鸡汤  
-13. PWA+LAVAS简述
+8. 手机简单调试方法---备忘
+9. html面试总结  
+10. 常用数组操作方法  
+11. commit message 规范
+12. echarts快速上手  
+13. 开发之余的心灵鸡汤  
+14. PWA+LAVAS简述
