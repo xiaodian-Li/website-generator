@@ -1,5 +1,5 @@
 ---
-title: PWA+LAVAS简述
+title: pwa+lavas简述
 date: 2018-05-17 11:45:16
 tags: [性能, pwa, lavas]
 categories: 前端知识
