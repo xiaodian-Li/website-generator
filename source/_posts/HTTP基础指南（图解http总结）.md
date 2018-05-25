@@ -8,12 +8,12 @@ categories: http基础
 ## 了解Web及网络基础
 1.相关概念：
 * DNS:位于应用层，提供域名到IP地址之间的解析服务。<br><!--more-->
-![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/11.png)
+![Alt text](http://images.daojia.com/assets/other/images/http1.png)
 * TCP协议: 位于传输层，提供可靠的字节流服务。（就是将大块数据分割成以报文段为单位的数据包进行管理）
 * IP协议: 位于网络层，tcp/ip协议族中指网际协议，是一种协议名称，作用把各种数据包传递给对方。（确保成功发送，满足ip地址和mac地址）
 * IP地址:指明节点被分配到的地址；MAC地址：指网卡所属的固定地址
 * ARP协议:解析地址协议，根据IP反查MAC<br>
-![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/12.png)
+![Alt text](http://images.daojia.com/assets/other/images/http2.png)
 * RFC:用来制定http协议技术标准文档
 * TCP/IP协议族层次分为以下4层
 * 应用层：决定了向用户提供应用服务时通信的活动。（eg:文件传输协议FTP，域名系统DNS，http协议）
@@ -21,9 +21,9 @@ categories: http基础
 * 网络层：处理网络流动的数据包。（数据包是网络传输的）
 * 链路层: 连接网络的硬件部分。
 * 三次握手：发送端发送带SYN标志数据包给对方---->接收端接受回传带SYN/ACK标志数据包确认信息--→发送端回传一个带ACK标志的数据包。
-![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/13.png)
+![Alt text](http://images.daojia.com/assets/other/images/http3.png)
 2.相关传输过程：
-![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/14.png)                  ![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/15.png)
+![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/14.png)                  ![Alt text](http://images.daojia.com/assets/other/images/http5.png)
 
 3.URI与URL
 * URI（Uniform Resource Identifier）：统一资源标识符。
@@ -48,12 +48,12 @@ URI用字符串标识某一互联网资源，而URL表示资源的地点（互�
 3.因为http是不保存协议，所以用到Cookie状态管理。
 第一次客户端没带cookie到服务端，服务端响应返回添加cookie，第二次以后请求服务端就带有cookie，最后得到响应。
 请求报文------响应报文--------请求报文
-![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/2.png)
+![Alt text](http://images.daojia.com/assets/other/images/http6.png)
 
 <br>
 
 ## 返回结果的HTTP状态码
-![Alt text](https://minisite.daojia.com/assets/minisite/2017/sy/img/4.png)
+![Alt text](http://images.daojia.com/assets/other/images/http7.png)
 * 2XX:成功
 200：客户端发送的请求在服务器端正常处理了
 204:请求成功，但没有资源返回
@@ -91,6 +91,25 @@ URI用字符串标识某一互联网资源，而URL表示资源的地点（互�
 * 其他: HTTP的RFC里未定义的首部（cookie等）
 
 <br>
+
+## HTTP存在的问题
+* 可能被窃听  
+HTTP 本身不具备加密的功能,HTTP 报文使用明文方式发送  
+由于互联网是由联通世界各个地方的网络设施组成,所有发送和接收经过某些设备的数据都可能被截获或窥视。(例如大家都熟悉的抓包工具:Wireshark)
+* 认证问题  
+无法确认你发送到的服务器就是真正的目标服务器(可能服务器是伪装的)   
+无法确定返回的客户端是否是按照真实意图接收的客户端(可能是伪装的客户端)  
+无法确定正在通信的对方是否具备访问权限，Web 服务器上某些重要的信息，只想发给特定用户即使是无意义的请求也会照单全收。无法阻止海量请求下的 DoS 攻击（Denial of Service，拒绝服务攻击）。  
+* 可能被篡改
+请求或响应在传输途中，遭攻击者拦截并篡改内容的攻击被称为中间人攻击（Man-in-the-Middle attack，MITM）。
+
+<br>
+
+## HTTPS介绍
+* 什么是HTTPS  
+超文本传输安全协议（英语：Hypertext Transfer Protocol Secure，缩写：HTTPS，常称为HTTP over TLS，HTTP over SSL或HTTP Secure）是一种通过计算机网络进行安全通信的传输协议。HTTPS经由HTTP进行通信，但利用SSL/TLS来加密数据包。HTTPS开发的主要目的，是提供对网站服务器的身份认证，保护交换数据的隐私与完整性。
+* HTTPS怎么解决上述问题
+HTTPS是在通信接口部分用 TLS(Transport Layer Security 传输层安全性协议)，TLS协议采用主从式架构模型，用于在两个应用程序间通过网络创建起安全的连接，防止在交换数据时受到窃听及篡改。  
 
 
 
