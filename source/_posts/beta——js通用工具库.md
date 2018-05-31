@@ -2,6 +2,7 @@
 title: beta——js通用工具库
 date: 2018-05-30 21:02:33
 tags: [js]
+categories: js
 ---
 背景：针对业务需要，对js常用方法进行整合，提升开发效率    
 github地址：https://github.com/xiaodian-Li/js-util
