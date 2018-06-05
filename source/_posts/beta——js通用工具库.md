@@ -5,18 +5,14 @@ tags: [js]
 categories: js
 ---
 背景：针对业务需要，对js常用方法进行整合，提升开发效率    
-github地址：https://github.com/xiaodian-Li/js-util
 # 相关API
-大致分为几类，详细api以及用法参考docx/api.md  <br><!--more-->
+大致分为几类，详细api以及用法参考docs/index.html  <br><!--more-->
 
 ## 1.cookie
 ##### getCookie(name)根据 name 获取对应的 cookie 值。
 ##### hasCookie(name)查询名为 name 的 cookie 是否存在。
 ##### removeCookie(name, path, domain)移除名为 name 的 cookie。
 ##### setCookie(name, val, opts)设置 cookie。
-##### removeCookie(name, path, domain)移除名为 name 的 cookie。
-##### removeCookie(name, path, domain)移除名为 name 的 cookie。
-##### removeCookie(name, path, domain)移除名为 name 的 cookie。
 ##### removeCookie(name, path, domain)移除名为 name 的 cookie。
 
 
@@ -28,9 +24,9 @@ github地址：https://github.com/xiaodian-Li/js-util
 
 
 ## 3.url(获取与url相关的参数等)
-##### getQueryParam(name, url)返回指定查询字符串参数的值（如果在当前页面 URL 中或在提供的字符串中找到）
-##### getParams(str)返回一个名为str的参数
-##### getQueryString (value)获取url上的文本
+##### getUrlParam(key)获取传入的url或当前url中，指定查询字符串对应的值
+##### getParams(str)获取指定的url或者当前url中， 所有查询字符串值的集合
+##### getUaParams (key)获取公共参数（app信息）
 
 
 ## 4.validator(常用验证)
@@ -87,13 +83,19 @@ github地址：https://github.com/xiaodian-Li/js-util
 ##### getNodeName(elem, name)获取元素节点名称
 ##### getEach(obj, fn, context)遍利节点
 ##### getTrim(text)清除字符串空格
+
+## 7.commonOther(通用其他方法)
+##### getRealStringLenth(str)获得真实字符长度 中文两个字节，英文一个字节
+
+
 ### 一.介绍大致目录
 ```
 until                # 通用方法库
 ├── dist             # 编译后生成
-├── docx             # 方法用法说明，更新日志说明
+├── docs             # 可视化方法用法说明以及展示
 ├── node_moules      # 打项目依赖
 ├── src              # 项目资源文件，代码出处
+├── template         # jsdoc样式出处
 ├── test             # 项目测试目录
 ├── 其他              # 项目，脚手架所需的基本配置
 
@@ -114,12 +116,23 @@ A.B.C----A表示大版本号，一般当软件整体重写，或出现不向后�
 ——4.3 相关api
 
 ### 五.文档
-相关文档除在readme中，还有docx文件里
+相关文档除在readme中，以及docs中的index.html
 
-### 六.Todo List
-——6.1 在第一版中自己的方法中并没有用到方法，下一步需要进行整合（关联也是测试一部分）  
-——6.2 方法可能不是太全，大家有什么方法类可以补充的，或者经常使用的方法需要补充  
-——6.3 可以提给我or自己拉分支修改    
-——6.4 单测可以更全面的覆盖  
+### 六.排期
+——6.1 第一版本
+
+日期 | 功能 | 备注
+---|---|---|
+5.21-5.24  | 0.补充说明维护文档<br>1.增加时间戳转化方法<br>2.增加类型判断方法<br>3.增加个人信息判断方法 | 发布第一版beta - v1.0.0
+5.25 | 1.优化规范命名<br>2.安装以及使用文档 |tag(小版本补丁beta - v1.0.1)
+
+
+——6.2 第二版本
+
+日期 | 功能 | 备注
+---|---|---|
+6.1-6.6  | 1.增加时间类判断方法<br>2.剔除重复方法<br>3.格式化注释规范方便自动生成文档 | 
+6.7-6.8 | 1.所有文档自动生成<br>2.方法可视化 | 
+6.11-6.13 | 修复bug | 预计发布v 2.0.1
  
-
+> 部分源码： https://github.com/xiaodian-Li/js-util
