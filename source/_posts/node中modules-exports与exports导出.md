@@ -50,6 +50,32 @@ app.js
 var a = require ('./a')
 console.log(a.a) // 执行node app 打印2
 ```
+
+###### 类比
+```
+var obj = new Object();
+obj.name = 'lisi'
+
+
+情况一：对象.属性
+// obj.sayHello 相当于export.sayHello
+obj.sayHello = function () {
+    console.log(this.name) // lisi
+}
+obj.sayHello(); 
+
+
+情况二：对象.方法
+//obj相当于module.exports
+obj = {
+    sayHello: function () {
+      console.log(this.name) // null
+    }
+}
+obj.sayHello(); 
+obj.name()； // 打印不出lisi,已经重写obj,obj下面没有name方法
+```
+
 此文章也是自己的学习记录，如有不足，欢迎指正知道
 
 
