@@ -1,7 +1,7 @@
 ---
 title: html面试总结
 date: 2018-01-25 14:37:38
-tags: [html面试]
+tags: [html, 面试]
 ---
 ### 1.doctype的作用是什么？
 声明文档的解析类型(document.compatMode)，目的是要告诉标准通用标记语言解析器，它应该使用什么样的文档类型定义（DTD）来解析文档避免浏览器的怪异模式。没有DOCTYPE的声明，那么compatMode默认就是BackCompat(怪异模式)，
