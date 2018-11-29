@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Li_xiaodian's personal blog
+title: little_lion's personal blog
 subtitle: Learn Change My Life
 description: 学习总结 思考感悟 知识管理
-author: Li_小点
+author: little_lion
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://xiaodian-li.github.io/
+url: https://little_lion.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
