@@ -1,5 +1,5 @@
 ---
-title: 几张图让你彻底弄懂git工作流(一)——git简史与git基础
+title: git工作流(一)——git简史与git基础
 date: 2018-05-18 18:57:55
 tags: [git]
 ---

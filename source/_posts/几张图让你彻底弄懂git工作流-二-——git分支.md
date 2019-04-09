@@ -1,5 +1,5 @@
 ---
-title: 几张图让你彻底弄懂git工作流(二) ——git分支
+title: git工作流(二) ——git分支
 date: 2018-05-28 11:40:42
 tags: [git]
 ---

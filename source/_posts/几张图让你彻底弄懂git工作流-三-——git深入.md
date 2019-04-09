@@ -1,5 +1,5 @@
 ---
-title: 几张图让你彻底弄懂git工作流(三) ——git深入
+title: git工作流(三) ——git深入
 date: 2018-05-28 15:35:05
 tags: [git]
 ---
