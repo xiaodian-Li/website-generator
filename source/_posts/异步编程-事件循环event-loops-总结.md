@@ -167,38 +167,40 @@ console.log('代码执行结束');
 宏任务，微任务你理解么?
 ```
 console.log('1');
+
 setTimeout(function() {
-console.log('2');
+    console.log('2');
+    process.nextTick(function() {
+        console.log('3');
+    })
+    new Promise(function(resolve) {
+        console.log('4');
+        resolve();
+    }).then(function() {
+        console.log('5')
+    })
+})
 process.nextTick(function() {
-console.log('3');
+    console.log('6');
 })
 new Promise(function(resolve) {
-console.log('4');
-resolve();
+    console.log('7');
+    resolve();
 }).then(function() {
-console.log('5')
+    console.log('8')
 })
-})
-process.nextTick(function() {
-console.log('6');
-})
-new Promise(function(resolve) {
-console.log('7');
-resolve();
-}).then(function() {
-console.log('8')
-})
+
 setTimeout(function() {
-console.log('9');
-process.nextTick(function() {
-console.log('10');
-})
-new Promise(function(resolve) {
-console.log('11');
-resolve();
-}).then(function() {
-console.log('12')
-})
+    console.log('9');
+    process.nextTick(function() {
+        console.log('10');
+    })
+    new Promise(function(resolve) {
+        console.log('11');
+        resolve();
+    }).then(function() {
+        console.log('12')
+    })
 })
 ```
 执行顺序：整段代码，共进行了三次事件循环，完整的输出为1，7，6，8，2，4，3，5，9，11，10，12。  
