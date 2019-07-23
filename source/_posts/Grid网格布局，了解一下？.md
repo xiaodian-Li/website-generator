@@ -3,17 +3,21 @@ title: Grid网格布局，了解一下？
 date: 2019-06-17 21:18:27
 tags: [css]
 ---
-## 1.Grid布局定义  
+## Grid布局定义   
 CSS的网格布局模块提供了一个基于网格的布局系统，能够以行和列来进行布局，使其更容易设计网页，而不必使用浮标和定位。  
-## 2.网格布局创建  
-display属性被设置为网格或内联网格。  
-块级元素设置display:grid  
-内联元素设置display:inline-grid
+只要给块级元素设置display:grid
+或者给内联元素设置display:inline-grid，
+Grid布局就可以创建
 <!--more-->
+## 先看一下效果  
+display属性被设置为网格或内联网格。  
+
+使用grid布局主要需要做的是将display设置为grid(块级元素)或inline-grid(内联元素)
+
 ```html
-<!-- grid-container称为grid容器 -->
+// grid-container称为grid容器
 <div class="grid-container">
-  <!-- grid-item称为grid子项 -->
+  // grid-item称为grid子项
   <div class="grid-item">1</div>
   <div class="grid-item">2</div>
   <div class="grid-item">3</div>  
@@ -41,25 +45,41 @@ display属性被设置为网格或内联网格。
 
 ![image](https://static.daojia.com/assets/project/tosimple-pic/WechatIMG51_1560738512366.png)
 
-## 3.网格容器
-为了使一个HTML元素表现为一个网格容器，你必须设置显示属性为网格或内嵌网格。  
-网格容器组成的网格项目，置于行和列内。
+## 主要属性介绍 
+为了使一个HTML元素表现为一个网格容器，你必须设置显示属性为网格或内联网格。网格容器组成的网格项目，网格项目又置于行和列内。
 
-##### 3-1.grid-template-columns属性定义的列数在网格布局，它可以定义每个列的宽度。  
-该值是一个空格分隔列表，其中每个值定义的相应列的长度。  
+#### grid-template-columns  
+
+该属性定义的列数在网格布局，它可以定义每个列的宽度。其值是一个空格分隔列表，其中每个值定义的相应列的长度。  
 css数据类型，表示网格容器内的灵活长度（如1fr,1.5fr)
+
+> 注意：为了方便表示比例关系，网格布局提供了fr关键字（fraction 的缩写，意为"片段"）。如果两列的宽度分别为1fr和1.5fr，就表示后者是前者的1.5倍。
+
+语法：  
+```grid-template-columns: <track-size> ... | <line-name> <track-size>... ```
+* <track-size>：宽度尺寸。可以是长度值，百分比值，以及fr单位（网格剩余空间比例单位）。
+* <line-name>：自定义的命名。
+
 ```
 .grid-container {
   display: grid;
-  //网格布局有4列,所占宽度分别为50px 40px 30px 20px
+  //网格布局有4列,所占宽度分别为50px 40px 30nepx 20px
   grid-template-columns: 50px 40px 30px 20px;
   //网格布局有5列,所占宽度分别如下
   grid-template-columns: 50px 40px 30px 20px 10px;
   // 容器分成3列，一列宽度为50px，然后将容器剩下的部分成2个部分,第二列和第三列各占1个部分
   grid-template-columns: 50px 1fr 1fr;
+  // 自定义命名
+  grid-template-columns: [第一纵线] 80px [纵线2] auto [纵线3] 100px [最后的结束线];
 }
 ```
-##### 3-2.grid-template-rows属性定义每一行的高度。
+#### grid-template-rows
+该属性定义每一行的高度。  
+语法：  
+```grid-template-rows: <track-size> ... | <line-name> <track-size> ... ```
+* <track-size>：宽度尺寸。可以是长度值，百分比值，以及fr单位（网格剩余空间比例单位）。
+* <line-name>：自定义的命名。
+
 ```
 .grid-container {
   display: grid;
@@ -67,17 +87,24 @@ css数据类型，表示网格容器内的灵活长度（如1fr,1.5fr)
   grid-template-rows: 80px 200px;
   // 容器分成3行，一行高度为50px，然后将容器剩下的高度分为2个部分,第二行和第三行高度各占1个部分
   grid-template-rows: 50px 1fr 1fr;
+  // 任意命名
+  grid-template-rows: [第一行开始] 25% [第一行结束] 100px [行3] auto [行4] 60px [行末];
 }
 ```
-##### 3-3.justify-content属性用于横向对准容器内整个网格  
+#### justify-content
+该属性用于横向对准容器内整个网格    
+语法：
+```
+justify-content: stretch | start | end | center | space-between | space-around | space-evenly
+```
 可能取值  
 * stretch：默认值。拉伸，宽度填满grid容器，拉伸效果需要网格目标尺寸设为auto时候才有效，如果定死了宽度，则无法拉伸。  
 * space-evenly：evenly是匀称、平等的意思。也就是视觉上，每个flex子项两侧空白间距完全相等。   
 * space-around：around是环绕的意思，意思是每个flex子项两侧都环绕互不干扰的等宽的空白间距，最终视觉上边缘两侧的空白只有中间空白宽度一半。   
 * space-between：表现为两端对齐。between是中间的意思，意思是多余的空白间距只在元素中间区域分配。   
 * center：表现为居中对齐。   
-* start：默认值。逻辑CSS属性值，与文档流方向相关。默认表现为左对齐。   
-* end：逻辑CSS属性值，与文档流方向相关。默认表现为右对齐。
+* start: 逻辑CSS属性值，与文档流方向相关。对齐容器的起始边框,默认表现为左对齐。   
+* end：逻辑CSS属性值，与文档流方向相关。对齐容器的结束边框,默认表现为右对齐。
 
 ```
 .grid-container {
@@ -88,12 +115,26 @@ css数据类型，表示网格容器内的灵活长度（如1fr,1.5fr)
 
 space-evenly | space-around | space-between | center | start | end |
 ---|---|---|---|---|---
-![](https://static.daojia.com/assets/project/tosimple-pic/411560512492__1560512669908.pic) | ![](https://static.daojia.com/assets/project/tosimple-pic/421560512520__1560512671284.pic) | ![](https://static.daojia.com/assets/project/tosimple-pic/431560512545__1560512673274.pic) | ![](https://static.daojia.com/assets/project/tosimple-pic/441560512563__1560512674646.pic) | ![](https://static.daojia.com/assets/project/tosimple-pic/451560512594__1560512676121.pic) | ![](https://static.daojia.com/assets/project/tosimple-pic/461560512610__1560512983075.pic)
+![](https://static.daojia.com/assets/project/tosimple-pic/1_1560824999398.jpg) | ![](https://static.daojia.com/assets/project/tosimple-pic/2_1560824999458.jpg) | ![](https://static.daojia.com/assets/project/tosimple-pic/3_1560824999457.jpg) | ![](https://static.daojia.com/assets/project/tosimple-pic/4_1560824999457.jpg) | ![](https://static.daojia.com/assets/project/tosimple-pic/5_1560824999369.jpg) | ![](https://static.daojia.com/assets/project/tosimple-pic/6_1560824999397.jpg)
 
 
 
-##### 3-4.align-content属性用于竖直地对准在容器内部的整个网格   
-可能取值stretch，space-evenly，space-around，space-between，center，start，end （同justify-content取值）
+#### align-content
+该属性用于竖直地对准在容器内部的整个网格。  
+语法：
+```
+align-content: stretch | start | end | center | space-between | space-around | space-evenly
+```
+可能取值
+* stretch：默认值。每一行flex子元素都等比例拉伸。例如，如果共两行flex子元素，则每一行拉伸高度是50%。
+* start： 逻辑CSS属性值，与文档流方向相关。默认表现为顶部开始。
+* end： 逻辑CSS属性值，与文档流方向相关。默认表现为底部开始。
+* center： 表现为整体垂直居中对齐。
+* space-between: 上下两行两端对齐。剩下每一行元素等分剩余空间。
+* space-around：
+每一行元素上下都享有独立不重叠的空白空间。
+* space-evenly：
+每一行元素都完全上下等分。
 ```
 .grid-container {
   display: grid;
@@ -102,14 +143,15 @@ space-evenly | space-around | space-between | center | start | end |
 }
 ```
 
-##### 3-5.place-content可以让align-content和justify-content属性缩写在一个CSS声明中
+#### place-content
+该属性可以让align-content和justify-content属性缩写在一个CSS声明中
+语法：
 ```
-.container {
-    // 由于兼容性问题， 不建议合在一起
-    place-items: <align-content> / <justify-content>;
-}
+// 由于兼容性问题， 不建议合在一起
+place-items: <align-content> / <justify-content>
 ```
-## 4.网格间隙
+
+## 网格间隙
 每列/行之间的间隙被称为间隙
 ```
 .grid-container {
@@ -121,16 +163,18 @@ space-evenly | space-around | space-between | center | start | end |
 ```
 ![image](https://static.daojia.com/assets/project/tosimple-pic/WechatIMG50_1560738319166.png)
 
-## 5.网格线
+## 网格线
 列之间的线被称为列线。  
 行之间的线被称为行线。
 ![image](https://static.daojia.com/assets/project/tosimple-pic/WechatIMG52_1560739613322.png)
-##### 5-1.放置在列线1的网格项目，并让它结束对列线3
+#### 示例
+放置在列线1的网格项目，并让它结束对列线3。  
+
 可能取值：
 ```
 grid-column-start: <number> | <name> | span <number> | span <name> | auto
 ```
-<number>：起止与第几条网格线。  
+<number>：起止于第几条网格线。  
 <name>：自定义的网格线的名称。  
 span <number>：当前网格会自动跨越指定的网格数量。  
 span <name>：当前网格会自动扩展，直到命中指定的网格线名称。    
@@ -142,19 +186,19 @@ auto：全自动，包括定位，跨度等。
 }
 ```
 ![image](https://static.daojia.com/assets/project/tosimple-pic/WechatIMG53_1560740516610.png)
-##### 5-2.同理放在在排线(行线)1的网格项目，并让它结束对排线3
+#### 同理放在在排线(行线)1的网格项目，并让它结束对排线3
 ```css
 .item1 {
   grid-row-start: 1;
   grid-row-end: 3;
 }
 ```
-##### 5-3.grid-column（grid-column-start + grid-column-end）属性定义在其上的列（多个）放置的一个项目  
+#### grid-column（grid-column-start + grid-column-end）属性定义在其上的列（多个）放置的一个项目  
 可能取值：
 ```
 grid-column: <start-line> / <end-line> | <start-line> / span <value>;
 ```
-eg:让item1开始在1号线和3号线结束：
+eg:让item1在1号线开始和3号线结束：
 ```
 .item1 {
   grid-column: 1 / 3;
@@ -171,16 +215,26 @@ eg:让item1开始在1号线开始和跨度3列结束：
 eg:让item1开始在2号线开始和跨度2列结束：
 ```
 .item1 {
-  grid-column: 2 / span 2;
+  grid-column: 2 / span 3;
 }
 ```
 ![image](https://static.daojia.com/assets/project/tosimple-pic/WechatIMG58_1560742987625.png)
-##### 5-4.grid-row（grid-row-start + grid-row-end）属性定义哪一行放置一个项目  
+#### grid-row（grid-row-start + grid-row-end）属性定义哪一行放置一个项目  
 可能取值及原理同grid-column
 
-## 6.grid-area属性可以被用作速记属性为 网格行启动，格列启动，网格行端和网格列端的特性
+## grid-area
+该属性表示当前网格所占用的区域，可以被用作速记属性为 网格行启动，网格列启动，网格行截止和网格列截止的特性   
 
-eg:使“item1”上行线1和列线2开始，上行线4和列线6结束
+语法：
+```
+grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>
+```
+可能取值：
+* <name>: 区域名称。由grid-template-areas属性创建。
+* <row-start> / <column-start> / <row-end> / <column-end>:
+占据网格区域的纵横起始位置。
+
+eg:使“item1”上行线1和列线2开始，上行线4和列线3结束
 ```
 .item1 {
   grid-area: 1 / 2 / 4 / 3;
@@ -196,8 +250,8 @@ eg:使“item1”对行线1和列2号线和跨度2行跨度3列结束
 ```
 ![image](https://static.daojia.com/assets/project/tosimple-pic/WechatIMG62_1560750913864.png)
 
-## 7.命名网格项目
-grid-area属性也可用于分配的名称并网项目
+## 命名网格项目
+grid-area属性也可以为网格项目Item命名
 ```
 .item1 {
   // item1将被命名为“myArea”
@@ -231,9 +285,10 @@ grid-area属性也可用于分配的名称并网项目
   grid-template-areas: 'myArea myArea . . .' 'myArea myArea . . .';
 } 
 ```
-![image](https://static.daojia.com/assets/project/tosimple-pic/WechatIMG66_1560752312852.png )
+![image](https://static.daojia.com/assets/project/tosimple-pic/WechatIMG66_1560752312852.png)
 
-## 8.隐式网格
+
+## 隐式网格
 使用grid-auto-rows, grid-auto-columns, grid-auto-flow来设置隐式网格  
 * grid-auto-rows：隐含创建的网格行的大小
 * grid-auto-columns：隐含创建的网格列的大小轨道
@@ -256,7 +311,7 @@ grid-area属性也可用于分配的名称并网项目
 ```
 ![image](https://static.daojia.com/assets/project/tosimple-pic/WechatIMG69_1560759889368.png)
 
-## 9.Grid属性集
+## Grid属性集
 
 作用在grid容器上 | 作用在grid子项上
 ---|---
@@ -278,20 +333,24 @@ grid-auto-rows |
 grid-auto-flow |
 grid（网格布局）|
 
-## 10.Grid与Flex主要区别
+## Grid与Flex主要区别
 * Grid布局则适用于更大规模的布局（二维布局），
 处理一些不规则和非对称的设计。  
 * Flexbox布局最适合应用程序的组件和小规模布局（一维布局）  
 
-* 2D 布局适合使用 CSS grids（行与列）  
-* Flexbox 适用于单一维度的布局（行或列）
 
-虽然grid存在一定的兼容，但是依照flex的趋势，grid的时代必然会来
+---
+虽然grid存在一定的兼容（如下图），但是依照flex的趋势，grid的时代必然会来
+![image](https://static.daojia.com/assets/project/tosimple-pic/1_1563245417637.png)
 
 
-> 参考文章  
+
+> 参考文章：   
 > https://www.w3schools.com/css/css_grid.asp
 > https://learncssgrid.com/
+
+
+
 
 
 
