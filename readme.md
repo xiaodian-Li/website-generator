@@ -1,3 +1,6 @@
+
+#### 访问网站
+https://lixiaoyu.site
 #### hexo相关命令
 ````
 hexo new "新文章title"  // 新建文章
