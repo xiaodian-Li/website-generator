@@ -3,7 +3,7 @@ title: JS对象和继承
 date: 2019-10-10 14:49:05
 tags:
 ---
-## 对象创建的三种方式
+## JS 对象创建的三种方式
 #### 字面量创建方式
 ```
 var person =｛
@@ -16,7 +16,6 @@ var person = new Object()
 person.name = 'Tom'
 ```
 <!--more-->
-
 #### 自定义构造函数
 ```
 function Person(name){
@@ -24,6 +23,7 @@ function Person(name){
 }
 var person = new Person('Tom');
 ```
+
 
 ## 继承方式
 #### for in 继承
@@ -42,7 +42,8 @@ for (var k in p) {
 console.log(s.name) // Tom
 console.log(s.age) // 25
 ```
-#### 原型 + 构造函数的继承
+#### 原型/原型链继承
+* 使子类的原型指向父类的实例实现继承
 ```
 function Person () {
   this.name = 'Tom'
@@ -85,6 +86,27 @@ var a = new Student('李四', '25', '100');
 console.log(a.name) // 李四
 console.log(a.age) // 25
 console.log(a.score) // 100
+```
+#### 对象冒充继承
+* 让父类的构造函数成为子类的方法，然后调用孩子类的方法，并通过this给所有的属性和方法赋值
+```
+function Person (name, age) {  // Person函数被Son继承
+  this.name = name
+  this.age = age
+  this.showAge=function() { 
+    console.log(this.age)
+  } 
+}
+function Son (name, age){  // 被用作构造函数，创建一个实例对象。
+  this.newMethod = Person // 将函数Person赋值给属性newMethod。
+  this.newMethod(name, age) // 执行函数newMethod，对函数Person中的属性赋值，完成继承。
+  delete this.newMethod // 删除属性（可删可不删）
+}
+
+var obj = new Son("Tom", "25")
+
+console.log(obj.showAge())//  25
+console.log(obj.name) // Tom
 ```
 
 相关文章： https://www.jianshu.com/p/b163e72aa8ae
