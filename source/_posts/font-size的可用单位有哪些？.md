@@ -6,12 +6,11 @@ tags: [css]
 font-size的长度单位汇总如下：  
 * 像素单位（px）
 * em
-* rem
+* rem<!--more-->
 * 百分比（%）
 * 视窗单位（vw，vh，vmin，vmax）
 * 绝对以及相对关键字设置字体大小（small,x-small等）
 * 其他（英寸-in，厘米-cm等）<br>
-<!--more-->
 
 
 就上面的长度单位，我们简单说一下：

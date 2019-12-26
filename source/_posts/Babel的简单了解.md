@@ -4,7 +4,7 @@ date: 2019-10-12 10:48:50
 tags:
 ---
 在了解Babel之前我们有必要了解下AST， 什么是AST呢？
-
+<!--more-->
 ### AST(抽象语法树)
 ```
 function square(n) {
@@ -34,7 +34,6 @@ function square(n) {
                 - Identifier
                   - name: n
 ```
-<!--more-->
 或是如下所示的 JavaScript Object（对象）:
 ```
 {

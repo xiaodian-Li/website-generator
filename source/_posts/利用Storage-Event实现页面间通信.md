@@ -9,8 +9,8 @@ categories: 存储
 我们都知道触发window.onstorage必须满足以下两个条件：  
   1. 通过localStorage.setItem或sessionStorage.setItem保存（更新）某个storage
   2. 保存（更新）这个storage时，它的新值必须与之前的值不同  
-
-上面的第二个条件，简单来讲就是：要么是storage的初始化，因为不存在的storage，其值为null；要么就是对已有storage的更新  <br><!--more-->
+ <br><!--more-->
+上面的第二个条件，简单来讲就是：要么是storage的初始化，因为不存在的storage，其值为null；要么就是对已有storage的更新 
 
 举例：
 ```

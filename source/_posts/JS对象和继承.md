@@ -10,12 +10,12 @@ var person =｛
   name: 'Tom'　
 ｝
 ```
+<!--more-->
 #### 系统内置构造函数方式
 ```
 var person = new Object()
 person.name = 'Tom'
 ```
-<!--more-->
 #### 自定义构造函数
 ```
 function Person(name){

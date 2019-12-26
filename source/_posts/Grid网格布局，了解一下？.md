@@ -6,9 +6,9 @@ tags: [css]
 ## Grid布局定义   
 CSS的网格布局模块提供了一个基于网格的布局系统，能够以行和列来进行布局，使其更容易设计网页，而不必使用浮标和定位。  
 只要给块级元素设置display:grid
-或者给内联元素设置display:inline-grid，
+或者给内联元素设置display:inline-grid，<!--more-->
 Grid布局就可以创建
-<!--more-->
+
 ## 先看一下效果  
 display属性被设置为网格或内联网格。  
 

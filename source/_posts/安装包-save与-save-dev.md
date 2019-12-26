@@ -11,12 +11,11 @@ tags: [npm]
 > #### tip2：当打包时
 > 
 > 使用--save安装的打包都打进去，
-> 
+> <!--more-->
 > 使用--save-dev安装的不进行打包， 
 > 
 > 故打包大小就有区别，根据自己的需要进行选择--save 还是--save-dev
 > 
-> <!--more-->
 > 
 > eg: 安装webpack装在devDependencies中，使打包体积更小 
 

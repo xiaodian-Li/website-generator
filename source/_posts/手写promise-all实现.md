@@ -4,11 +4,10 @@ date: 2019-12-24 16:37:24
 tags: [js]
 ---
 * promise.all()返回new promise
-* 需要一个数组存放promise的结果值
+* 需要一个数组存放promise的结果值<!--more-->
 * 遍历参数数组，判断是否是promise，是的话执行得到结果后压入结果数组；否则直接放入结果数组。
 * 当每个都成功执行后，resolve（result）
 * 当有一个失败，reject
-<!--more-->
 ```
 function isPromise (obj) {
   return !!obj && (typeof obj === 'object' && typeof obj === 'function') && typeof obj.then === 'function'
